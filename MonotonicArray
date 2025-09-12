@@ -1,0 +1,29 @@
+class MonotonicArray {
+    public boolean isMonotonic(int[] nums) {
+        boolean increasing = true;
+        boolean decreasing = true;
+        
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] > nums[i - 1]) {
+                decreasing = false;
+            }
+            if (nums[i] < nums[i - 1]) {
+                increasing = false;
+            }
+        }
+        
+        return increasing || decreasing;
+    }
+
+    public static void main(String[] args) {
+        MonotonicArray sol = new MonotonicArray();
+
+        int[] nums1 = {1, 2, 2, 3};
+        int[] nums2 = {6, 5, 4, 4};
+        int[] nums3 = {1, 3, 2};
+
+        System.out.println(sol.isMonotonic(nums1));
+        System.out.println(sol.isMonotonic(nums2));
+        System.out.println(sol.isMonotonic(nums3));
+    }
+}
