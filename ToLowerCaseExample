@@ -1,0 +1,13 @@
+public class ToLowerCaseExample {
+    public String toLowerCase(String s) {
+        return s.toLowerCase();
+    }
+
+    public static void main(String[] args) {
+        ToLowerCaseExample obj = new ToLowerCaseExample();
+        String input = "HelloWORLD";
+        String output = obj.toLowerCase(input);
+        System.out.println("Original: " + input);
+        System.out.println("Lowercase: " + output);
+    }
+}
