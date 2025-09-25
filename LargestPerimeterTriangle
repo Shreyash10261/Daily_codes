@@ -1,0 +1,25 @@
+import java.util.Arrays;
+
+class LargestPerimeterTriangle {
+    public int largestPerimeter(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        for (int i = n - 1; i >= 2; i--) {
+            int a = nums[i], b = nums[i - 1], c = nums[i - 2];
+            if (b + c > a) {
+                return a + b + c;
+            }
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        LargestPerimeterTriangle obj = new LargestPerimeterTriangle();
+
+        int[] nums1 = {2, 1, 2};
+        System.out.println(obj.largestPerimeter(nums1));
+
+        int[] nums2 = {1, 2, 1, 10};
+        System.out.println(obj.largestPerimeter(nums2));
+    }
+}
