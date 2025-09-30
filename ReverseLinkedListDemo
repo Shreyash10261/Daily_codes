@@ -1,0 +1,50 @@
+import java.util.*;
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode() {}
+    ListNode(int val) { this.val = val; }
+    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+}
+
+public class ReverseLinkedListDemo {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+
+        while (curr != null) {
+            ListNode nextNode = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextNode;
+        }
+        return prev;
+    }
+
+    public void printList(ListNode head) {
+        ListNode curr = head;
+        while (curr != null) {
+            System.out.print(curr.val + " ");
+            curr = curr.next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1, 
+                          new ListNode(2, 
+                          new ListNode(3, 
+                          new ListNode(4, 
+                          new ListNode(5)))));
+
+        ReverseLinkedListDemo obj = new ReverseLinkedListDemo();
+
+        System.out.print("Original List: ");
+        obj.printList(head);
+
+        ListNode reversedHead = obj.reverseList(head);
+
+        System.out.print("Reversed List: ");
+        obj.printList(reversedHead);
+    }
+}
