@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class InsertCenter {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+        int element = 99;
+
+        int n = arr.length;
+        int mid = n / 2;
+
+        int[] newArr = new int[n + 1];
+
+        // Copy elements before middle
+        for (int i = 0; i < mid; i++) {
+            newArr[i] = arr[i];
+        }
+
+        // Insert new element at middle
+        newArr[mid] = element;
+
+        // Copy remaining elements
+        for (int i = mid; i < n; i++) {
+            newArr[i + 1] = arr[i];
+        }
+
+        // Print new array
+        System.out.println("Array after insertion:");
+        for (int num : newArr) {
+            System.out.print(num + " ");
+        }
+    }
+}
